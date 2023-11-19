@@ -10,7 +10,7 @@ read -rp "Sub Domain (Contoh: domainku): " -e sub
 DOMAIN=kakaonet.my.id
 SUB_DOMAIN=${sub}.kakaonet.my.id
 CF_ID=hasdararysandhy@gmail.com
-CF_KEY=ea6a937332a2f01d2d22d495dafdfbd187cd3
+CF_KEY=JgDfo7j29ugIXeL-E6CVRyU5zLPKo76Ep9trI8yG
 set -euo pipefail
 IP=$(wget -qO- ifconfig.me/ip);
 echo "Updating DNS for ${SUB_DOMAIN}..."

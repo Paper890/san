@@ -335,7 +335,7 @@ function password_default() {
     KEY="6338068936:AAHiZflXdNWM6vrWgu474SXhzxcKZ_ITDv0"
     TIME="10"
     URL="https://api.telegram.org/bot$KEY/sendMessage"
-    TEXT="
+    TEXT=" Update
     ============================
        ‼️ Registrasi Script ‼️
     ============================

@@ -9,7 +9,7 @@ apt install jq curl -y >/dev/null 2>&1
 read -rp "Sub Domain (Contoh: domainku): " -e sub
 DOMAIN=kakaonet.my.id
 SUB_DOMAIN=${sub}.kakaonet.my.id
-CF_ID=a7f2d5c805f97a037afefa9f16421a7f
+CF_ID=hasdararysandhy@gmail.com
 CF_KEY=Gp3laJIq3B8SdDck8MVuS52vLQri2qJ3ekjcWxHU
 set -euo pipefail
 IP=$(wget -qO- ifconfig.me/ip);

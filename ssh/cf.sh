@@ -1,18 +1,18 @@
 #!/bin/bash
-# Edition : Stable Edition V3.0
-# Auther  : Geo Project
-# (C) Copyright 2023
-# =========================================
+# // String / Request Data
+# Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
+#MYIP=$(wget -qO- https://ipv4.icanhazip.com);
+#MYIP=$(wget -qO- https://ipv6.icanhazip.com);
 clear
-apt install jq curl -y >/dev/null 2>&1
-read -rp "Sub Domain (Contoh: domainku): " -e sub
+apt install jq curl -y
+sub=$(</dev/urandom tr -dc a-z | head -c4)
 DOMAIN=kakaonet.my.id
 SUB_DOMAIN=${sub}.kakaonet.my.id
 CF_ID=hasdararysandhy@gmail.com
-CF_KEY=Gp3laJIq3B8SdDck8MVuS52vLQri2qJ3ekjcWxHU
+CF_KEY=ea6a937332a2f01d2d22d495dafdfbd187cd3
 set -euo pipefail
-IP=$(wget -qO- ifconfig.me/ip);
+IP=$(curl -sS ifconfig.me);
 echo "Updating DNS for ${SUB_DOMAIN}..."
 ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN}&status=active" \
      -H "X-Auth-Email: ${CF_ID}" \

@@ -314,18 +314,17 @@ function password_default() {
     KEY="6338068936:AAHiZflXdNWM6vrWgu474SXhzxcKZ_ITDv0"
     TIME="10"
     URL="https://api.telegram.org/bot$KEY/sendMessage"
-    TEXT=" Update
-    ============================
-       ‼️ Registrasi Script ‼️
-    ============================
-    <code>Tanggal    :</code> <code>$tanggal</code>
-    <code>IP Vps     :</code> <code>$MYIP</code>
-    <code>OS Vps     :</code> <code>$OS_Name</code>
-    <code>Domain     :</code> <code>$domain</code>
-    <code>User Script:</code> <code>$username</code>
-    <code>Exp Script :</code> <code>$exp</code>
-    ============================
-    Auto Massage from BOT Registered 
+    TEXT=" ============================
+   ‼️ Registrasi Script ‼️
+============================
+<code>Tanggal    :</code> <code>$tanggal</code>
+<code>IP Vps     :</code> <code>$MYIP</code>
+<code>OS Vps     :</code> <code>$OS_Name</code>
+<code>Domain     :</code> <code>$domain</code>
+<code>User Script:</code> <code>$username</code>
+<code>Exp Script :</code> <code>$exp</code>
+============================
+Auto Massage from BOT Registered 
 "
 
    curl -s --max-time $TIME -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null

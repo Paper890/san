@@ -24,10 +24,14 @@ clear && clear && clear
 clear;clear;clear
 
   # // Banner
-echo -e "${YELLOW}----------------------------------------------------------${NC}"
-echo -e "  Script Installer ${YELLOW}(${NC}${green} Stable Edition ${NC}${YELLOW})${NC}"
-echo -e "     This Will Quick Setup VPN Server On Your Server"
-echo -e "${YELLOW}----------------------------------------------------------${NC}"
+echo -e "---------------------------------------------------"
+echo -e "     _______   _  __  ______________  ___  ____    "
+echo -e "    / __/ _ | / |/ / / __/_  __/ __ \/ _ \/ __/    "
+echo -e "   _\ \/ __ |/    / _\ \  / / / /_/ / , _/ _/      "
+echo -e "  /___/_/ |_/_/|_/ /___/ /_/  \____/_/|_/___/      "
+echo -e "  AUTOSCRIPT FOR VPN : SSH,VMESS,VLESS,TROJAN      "
+echo -e "  BUY PERMISION Wa.me : 085155208019               "
+echo -e "---------------------------------------------------"
 echo ""
 sleep 2
 

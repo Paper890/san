@@ -61,9 +61,6 @@ else
 fi
 
 # // Validate Successfull
-echo ""
-read -p "$( echo -e "Press ${GRAY}[ ${NC}${green}Enter${NC} ${GRAY}]${NC} For Starting Installation") "
-echo ""
 clear
 if [ "${EUID}" -ne 0 ]; then
 		echo "You need to run this script as root"

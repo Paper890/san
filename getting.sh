@@ -63,9 +63,9 @@ clear
     fi
 }
 
-# Install dependencies
-apt install -y wget screen
+# Install repo
 apt update -y && apt upgrade -y
+apt install -y wget screen
 apt install lolcat -y
 gem install lolcat
 

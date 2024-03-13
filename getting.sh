@@ -63,12 +63,6 @@ clear
     fi
 }
 
-# Install repo
-apt update -y && apt upgrade -y
-apt install -y wget screen
-apt install lolcat -y
-gem install lolcat
-
 clear
 # // Checking Os Architecture
 if [[ $( uname -m | awk '{print $1}' ) == "x86_64" ]]; then

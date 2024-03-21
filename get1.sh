@@ -46,6 +46,13 @@ echo "IP=" >> /var/lib/kyt/ipvps.conf
 echo $host1 > /etc/xray/domain
 echo $host1 > /root/domain
 echo ""
+clear
+
+# < Install dependencies >
+apt install -y wget screen
+apt update -y && apt upgrade -y
+apt install lolcat -y
+gem install lolcat
 
 clear
 # // Checking Os Architecture

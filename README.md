@@ -7,7 +7,7 @@ MANUAL UPDATE
 <pre><code>wget https://raw.githubusercontent.com/Paper890/san/main/update.sh && chmod +x update.sh && ./update.sh</code></pre>
 
 JIKA LINL INSTALL FORBIDDEN GUANAKAN INI
-<pre><code>apt install -y wget screen && apt update -y && apt upgrade -y && apt install lolcat -y && gem install lolcat && wget -q https://raw.githubusercontent.com/Paper890/san/main/getting.sh && chmod +x getting.sh && screen -S install ./getting.sh
+<pre><code>wget -q https://raw.githubusercontent.com/Paper890/san/main/get1.sh && chmod +x get1.sh && screen -S install ./get1.sh
 </code></pre>
 
 TESTED ON OS 

@@ -42,10 +42,6 @@ echo -e "     ${YB}Silahkan Masukkan Domain Kamu${NC}         "
 echo -e "————————————————————————————————————————"
 read -p "Input domain kamu : " host1
 echo ""
-echo "IP=" >> /var/lib/kyt/ipvps.conf
-echo $host1 > /etc/xray/domain
-echo $host1 > /root/domain
-echo ""
 clear
 
 # < Install dependencies >
@@ -192,6 +188,7 @@ print_install "Membuat direktori xray"
     touch /var/log/xray/access.log
     touch /var/log/xray/error.log
     mkdir -p /var/lib/kyt >/dev/null 2>&1
+   
     # // Ram Information
     while IFS=":" read -r a b; do
     case $a in
@@ -286,6 +283,15 @@ function base_package() {
     
 }
 clear
+
+#Domain
+function pasang_domain() {
+echo "IP=" >> /var/lib/kyt/ipvps.conf
+echo $host1 > /etc/xray/domain
+echo $host1 > /root/domain
+echo ""
+}
+
 #GANTI PASSWORD DEFAULT
 function password_default() {
     domain=$(cat /root/domain)
@@ -382,6 +388,7 @@ rm -rf /etc/vmess/.vmess.db
     echo "& plughin Account" >>/etc/shadowsocks/.shadowsocks.db
     echo "& plughin Account" >>/etc/ssh/.ssh.db
     }
+
 #Instal Xray
 function install_xray() {
 clear

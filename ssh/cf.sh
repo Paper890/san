@@ -1,6 +1,17 @@
 #!/bin/bash
 #Ambil informasi IP
 IP=$( curl -sS ipinfo.io/ip )
+echo -e "---------------------------------------------------"
+echo -e "     _______   _  __  ______________  ___  ____    "
+echo -e "    / __/ _ | / |/ / / __/_  __/ __ \/ _ \/ __/    "
+echo -e "   _\ \/ __ |/    / _\ \  / / / /_/ / , _/ _/      "
+echo -e "  /___/_/ |_/_/|_/ /___/ /_/  \____/_/|_/___/      "
+echo -e "                                                   "
+echo -e "          BUY PERMISION : 085155208019             "
+echo -e "---------------------------------------------------"
+echo ""
+echo "Masukkan subdomain | Contoh : bebas (no space)"
+        read -p "Input subdomain : " subdomain
 
 # Set Cloudflare API credentials
 CF_API_KEY="ea6a937332a2f01d2d22d495dafdfbd187cd3"

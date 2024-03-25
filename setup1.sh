@@ -56,7 +56,7 @@ read -p "Pilih opsi (1/2): " option
         
         valid_input=true
     elif [ "$option" == "2" ]; then
-        clear
+        
         wget ${REPO}ssh/cf.sh && chmod +x cf.sh && ./cf.sh
         
         valid_input=true

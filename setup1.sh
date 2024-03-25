@@ -35,6 +35,7 @@ echo -e "                                                   "
 echo -e "          BUY PERMISION : 085155208019             "
 echo -e "---------------------------------------------------"
 echo ""
+mkdir -p /var/lib/kyt >/dev/null 2>&1
 mkdir -p /etc/xray
 touch /etc/xray/domain
 echo -e "————————————————————————————————————————"

@@ -31,6 +31,7 @@ curl -X POST "https://api.cloudflare.com/client/v4/zones/$CF_ZONE_ID/dns_records
      -H "Content-Type: application/json" \
      --data '{"type":"A","name":"'$RECORD_NAME'.'$DOMAIN'","content":"'$RECORD_IP'","ttl":1,"proxied":false}'
 
-echo $Domen > /etc/xray/domain
-echo $Domen > /root/domain
+#echo $Domen > /etc/xray/domain
+#echo $Domen > /root/domain
+echo -e "Domainmu = $Domen "
 

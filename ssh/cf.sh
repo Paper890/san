@@ -29,7 +29,7 @@ curl -X POST "https://api.cloudflare.com/client/v4/zones/$CF_ZONE_ID/dns_records
      -H "X-Auth-Email: $CF_API_EMAIL" \
      -H "X-Auth-Key: $CF_API_KEY" \
      -H "Content-Type: application/json" \
-     --data '{"type":"A","name":"'$RECORD_NAME.$DOMAIN'","content":"'$RECORD_IP'","ttl":1,"proxied":false}'
+     --data '{"type":"A","name":"'$RECORD_NAME'.'$DOMAIN'","content":"'$RECORD_IP'","ttl":1,"proxied":false}'
 
 echo $Domen > /etc/xray/domain
 echo $Domen > /root/domain

@@ -1,6 +1,9 @@
 #!/bin/bash
 #Ambil informasi IP
 IP=$( curl -sS ipinfo.io/ip )
+#imput subdomain
+read -p "Enter the subdomain: " subdomain
+
 # Set Cloudflare API credentials
 CF_API_KEY="ea6a937332a2f01d2d22d495dafdfbd187cd3"
 CF_API_EMAIL="hasdararysandhy@gmail.com"
@@ -12,7 +15,7 @@ RECORD_NAME="$subdomain"
 RECORD_IP="$IP"
 
 #Ambil informasi full domain
-Domen="$subdomain.kakaonet.my.id
+Domen="$subdomain.kakaonet.my.id"
 
 # Disable Cloudflare proxy status for the domain
 curl -X PATCH "https://api.cloudflare.com/client/v4/zones/$CF_ZONE_ID/dns_records?type=A&name=$RECORD_NAME.$DOMAIN" \

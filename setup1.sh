@@ -56,8 +56,7 @@ read -p "Pilih opsi (1/2): " option
         
         valid_input=true
     elif [ "$option" == "2" ]; then
-        echo "Masukkan Subdomain | Contoh : bebas (no Spasi)"
-        read -p "Input domain kamu : " tes
+        wget ${REPO}ssh/cf.sh &&  chmod +x cf.sh && ./cf.sh
         
         valid_input=true
     else

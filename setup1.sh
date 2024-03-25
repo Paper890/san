@@ -23,6 +23,9 @@ clear
 clear && clear && clear
 clear;clear;clear
 
+# REPO    
+    REPO="https://raw.githubusercontent.com/Paper890/san/main/"
+    
   # // Banner & domain
 mkdir -p /var/lib/kyt >/dev/null 2>&1
 mkdir -p /etc/xray
@@ -156,8 +159,6 @@ sts="${Error}"
 fi
 echo -e "\e[32mloading...\e[0m"
 clear
-# REPO    
-    REPO="https://raw.githubusercontent.com/Paper890/san/main/"
 
 ####
 start=$(date +%s)

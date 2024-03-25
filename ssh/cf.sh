@@ -33,4 +33,4 @@ curl -X POST "https://api.cloudflare.com/client/v4/zones/$CF_ZONE_ID/dns_records
 
 echo $Domen > /etc/xray/domain
 echo $Domen > /root/domain
-rm -f /root/cf.sh
+

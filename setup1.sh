@@ -24,7 +24,11 @@ clear && clear && clear
 clear;clear;clear
 
   # // Banner & domain
-echo -e ""
+mkdir -p /var/lib/kyt >/dev/null 2>&1
+mkdir -p /etc/xray
+touch /etc/xray/domain
+valid_input=false
+while [ "$valid_input" == false ]; do
 clear
 echo -e "---------------------------------------------------"
 echo -e "     _______   _  __  ______________  ___  ____    "
@@ -35,14 +39,29 @@ echo -e "                                                   "
 echo -e "          BUY PERMISION : 085155208019             "
 echo -e "---------------------------------------------------"
 echo ""
-mkdir -p /var/lib/kyt >/dev/null 2>&1
-mkdir -p /etc/xray
-touch /etc/xray/domain
 echo -e "————————————————————————————————————————"
-echo -e "     ${YB}Silahkan Masukkan Domain Kamu${NC}         "
+echo -e "     Domain Manager For this Script       "
 echo -e "————————————————————————————————————————"
-read -p "Input domain kamu : " host1
-echo ""
+echo -e "  1. Gunakan Domain Pribadi               "
+echo -e "  2. Gunakan Domain script ini            "
+echo -e "————————————————————————————————————————"
+read -p "Pilih opsi (1/2): " option
+
+    if [ "$option" == "1" ]; then
+        echo "Masukkan Domain Pribadi Kamu"
+        read -p "Input domain kamu : " host1
+        
+        valid_input=true
+    elif [ "$option" == "2" ]; then
+        echo "Masukkan Subdomain | Contoh : bebas (no Spasi)"
+        read -p "Input domain kamu : " tes
+        
+        valid_input=true
+    else
+        echo "Salah input, input kembali"
+        sleep 1
+    fi
+ done
 clear
 
 # < Install dependencies >

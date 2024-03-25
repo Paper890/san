@@ -1,10 +1,6 @@
 #!/bin/bash
 #Ambil informasi IP
 IP=$( curl -sS ipinfo.io/ip )
-
-echo -e "masukkan subdomain | Contoh : Domain"
-read -p "Enter the subdomain: " subdomain
-
 # Set Cloudflare API credentials
 CF_API_KEY="ea6a937332a2f01d2d22d495dafdfbd187cd3"
 CF_API_EMAIL="hasdararysandhy@gmail.com"

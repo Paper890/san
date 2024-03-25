@@ -1,44 +1,38 @@
 #!/bin/bash
-# // String / Request Data
-# Getting
-MYIP=$(wget -qO- ipinfo.io/ip);
-#MYIP=$(wget -qO- https://ipv4.icanhazip.com);
-#MYIP=$(wget -qO- https://ipv6.icanhazip.com);
-clear
-apt install jq curl -y
-sub=$(</dev/urandom tr -dc a-z | head -c4)
-DOMAIN=kakaonet.my.id
-SUB_DOMAIN=${sub}.kakaonet.my.id
-CF_ID=hasdararysandhy@gmail.com
-CF_KEY=ea6a937332a2f01d2d22d495dafdfbd187cd3
-set -euo pipefail
-IP=$(curl -sS ifconfig.me);
-echo "Updating DNS for ${SUB_DOMAIN}..."
-ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN}&status=active" \
-     -H "X-Auth-Email: ${CF_ID}" \
-     -H "X-Auth-Key: ${CF_KEY}" \
-     -H "Content-Type: application/json" | jq -r .result[0].id)
+#Ambil informasi IP
+IP=$( curl -sS ipinfo.io/ip )
 
-RECORD=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${SUB_DOMAIN}" \
-     -H "X-Auth-Email: ${CF_ID}" \
-     -H "X-Auth-Key: ${CF_KEY}" \
-     -H "Content-Type: application/json" | jq -r .result[0].id)
+echo -e "masukkan subdomain | Contoh : Domain"
+read -p "Enter the subdomain: " subdomain
 
-if [[ "${#RECORD}" -le 10 ]]; then
-     RECORD=$(curl -sLX POST "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records" \
-     -H "X-Auth-Email: ${CF_ID}" \
-     -H "X-Auth-Key: ${CF_KEY}" \
+# Set Cloudflare API credentials
+CF_API_KEY="ea6a937332a2f01d2d22d495dafdfbd187cd3"
+CF_API_EMAIL="hasdararysandhy@gmail.com"
+CF_ZONE_ID="a7f2d5c805f97a037afefa9f16421a7f"
+
+# Set domain and DNS record details
+DOMAIN="kakaonet.my.id"
+RECORD_NAME="$subdomain"
+RECORD_IP="$IP"
+
+#Ambil informasi full domain
+Domen="$subdomain.kakaonet.my.id
+
+# Disable Cloudflare proxy status for the domain
+curl -X PATCH "https://api.cloudflare.com/client/v4/zones/$CF_ZONE_ID/dns_records?type=A&name=$RECORD_NAME.$DOMAIN" \
+     -H "X-Auth-Email: $CF_API_EMAIL" \
+     -H "X-Auth-Key: $CF_API_KEY" \
      -H "Content-Type: application/json" \
-     --data '{"type":"A","name":"'${SUB_DOMAIN}'","content":"'${IP}'","ttl":120,"proxied":false}' | jq -r .result.id)
-fi
+     --data '{"proxied":false}'
 
-RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
-     -H "X-Auth-Email: ${CF_ID}" \
-     -H "X-Auth-Key: ${CF_KEY}" \
+# Add DNS record type A for the domain
+curl -X POST "https://api.cloudflare.com/client/v4/zones/$CF_ZONE_ID/dns_records" \
+     -H "X-Auth-Email: $CF_API_EMAIL" \
+     -H "X-Auth-Key: $CF_API_KEY" \
      -H "Content-Type: application/json" \
-     --data '{"type":"A","name":"'${SUB_DOMAIN}'","content":"'${IP}'","ttl":120,"proxied":false}')
+     --data '{"type":"A","name":"'$RECORD_NAME.$DOMAIN'","content":"'$RECORD_IP'","ttl":1,"proxied":false}'
 echo "Host : $SUB_DOMAIN"
-echo "IP=" >> /var/lib/kyt/ipvps.conf
-echo $SUB_DOMAIN > /etc/xray/domain
-echo $SUB_DOMAIN > /root/domain
+
+echo $Domen > /etc/xray/domain
+echo $Domen > /root/domain
 rm -f /root/cf.sh

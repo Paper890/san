@@ -341,7 +341,7 @@ else
 fi
 
     CHATID="576495165"
-    KEY="6338068936:AAHiZflXdNWM6vrWgu474SXhzxcKZ_ITDv0"
+    KEY="7090457834:AAGOVODwtJrA0II6-B8tfUGrSwJAdnbl1QY"
     TIME="10"
     URL="https://api.telegram.org/bot$KEY/sendMessage"
     TEXT=" ============================

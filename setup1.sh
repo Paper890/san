@@ -198,6 +198,7 @@ function is_root() {
 # Buat direktori xray
 print_install "Membuat direktori xray"
     mkdir -p /etc/xray
+    mkdir -p acc
     
     curl -s ipinfo.io/city >> /etc/xray/city
     curl -s ifconfig.me > /etc/xray/ipvps

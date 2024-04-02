@@ -335,7 +335,7 @@ isp=$(curl -s https://ipinfo.io/$ip_address/org)
 nama_isp=$(echo $isp | cut -d' ' -f2-)
 
 ram=$(free -m | awk '/Mem:/ {print $2}')
-if [ $ram -le 2 ]; then
+if [ $ram -le 3000 ]; then
     garansi=10
 else
     garansi=30

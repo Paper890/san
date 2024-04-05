@@ -309,6 +309,8 @@ clear
 
 #Domain
 function pasang_domain() {
+echo -e "PASANG DOMAIN"
+sleep 3
 echo "IP=" >> /var/lib/kyt/ipvps.conf
 echo $host1 > /etc/xray/domain
 echo $host1 > /root/domain

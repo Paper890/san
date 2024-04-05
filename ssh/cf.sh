@@ -1,7 +1,5 @@
 #!/bin/bash
 #Ambil informasi IP
-mkdir -p /etc/xray/domain
-mkdir -p /root/domain
 IP=$( curl -sS ipinfo.io/ip )
 clear
 echo -e "---------------------------------------------------"
@@ -26,6 +24,9 @@ DOMAIN="kakaonet.my.id"
 RECORD_NAME="$subdomain"
 RECORD_IP="$IP"
 
+#Ambil informasi full domain
+export host1=$subdomain.kakaonet.my.id
+
 # Disable Cloudflare proxy status for the domain
 curl -X PATCH "https://api.cloudflare.com/client/v4/zones/$CF_ZONE_ID/dns_records?type=A&name=$RECORD_NAME.$DOMAIN" \
      -H "X-Auth-Email: $CF_API_EMAIL" \
@@ -39,8 +40,3 @@ curl -X POST "https://api.cloudflare.com/client/v4/zones/$CF_ZONE_ID/dns_records
      -H "X-Auth-Key: $CF_API_KEY" \
      -H "Content-Type: application/json" \
      --data '{"type":"A","name":"'$RECORD_NAME'.'$DOMAIN'","content":"'$RECORD_IP'","ttl":1,"proxied":false}'
-#Ambil informasi full domain
-Domen="$subdomain.kakaonet.my.id"
-
-echo $Domen > /etc/xray/domain
-echo $Domen > /root/domain

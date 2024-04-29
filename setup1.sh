@@ -283,7 +283,7 @@ function base_package() {
     apt update -y
     apt upgrade -y
     apt dist-upgrade -y
-    apt-get install chrony
+    apt-get install chrony -y
     systemctl enable chronyd
     systemctl restart chronyd
     systemctl enable chrony
@@ -357,7 +357,7 @@ fi
 <code>Domain       :</code> <code>$domain</code>
 <code>User Script  :</code> <code>$username</code>
 <code>Expired      :</code> <code>$exp</code>
-<code>Password     :</code> <code>2024Vpsbysan</code>
+<code>Password     :</code> <code>@1Vpsbysan</code>
 ============================
 ☢️Rules :
 No Change Password

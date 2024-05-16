@@ -30,8 +30,6 @@ clear;clear;clear
 mkdir -p /var/lib/kyt >/dev/null 2>&1
 mkdir -p /etc/xray
 touch /etc/xray/domain
-valid_input=false
-while [ "$valid_input" == false ]; do
 clear
 echo -e "---------------------------------------------------"
 echo -e "     _______   _  __  ______________  ___  ____    "

@@ -45,26 +45,7 @@ echo ""
 echo -e "————————————————————————————————————————"
 echo -e "     Domain Manager For this Script       "
 echo -e "————————————————————————————————————————"
-echo -e "  1. Gunakan Domain Pribadi               "
-echo -e "  2. Gunakan Domain script ini            "
-echo -e "————————————————————————————————————————"
-read -p "Pilih opsi (1/2): " option
-
-    if [ "$option" == "1" ]; then
-        echo "Masukkan Domain Pribadi Kamu"
-        read -p "Input domain kamu : " host1
-        
-        valid_input=true
-    elif [ "$option" == "2" ]; then
-        
-        wget ${REPO}ssh/cf.sh && chmod +x cf.sh && ./cf.sh
-        
-        valid_input=true
-    else
-        echo "Salah input, input kembali"
-        sleep 1
-    fi
- done
+read -p "Input domain kamu : " host1    
 clear
 
 # < Install dependencies >

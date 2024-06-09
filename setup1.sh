@@ -770,12 +770,12 @@ apt install rclone -y
 printf "q\n" | rclone config
 wget -O /root/.config/rclone/rclone.conf "${REPO}backup/rclone.conf"
 #Install Wondershaper
-#cd /bin
-#git clone  https://github.com/magnific0/wondershaper.git
-#cd wondershaper
-#sudo make install
-#cd
-#rm -rf wondershaper
+cd /bin
+git clone  https://github.com/magnific0/wondershaper.git
+cd wondershaper
+sudo make install
+cd
+rm -rf wondershaper
 echo > /home/limit
 apt install msmtp-mta ca-certificates bsd-mailx -y
 cat<<EOF>>/etc/msmtprc

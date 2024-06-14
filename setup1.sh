@@ -259,8 +259,6 @@ function base_package() {
     print_install "Menginstall Packet Yang Dibutuhkan"
     apt install zip pwgen openssl netcat socat cron bash-completion -y
     apt install figlet -y
-    apt update -y
-    apt upgrade -y
     apt dist-upgrade -y
     apt-get install chrony -y
     systemctl enable chronyd

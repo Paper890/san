@@ -17,5 +17,6 @@ TESTED ON OS
 - DEBIAN 10
 
 fix Haproxy Off:
-user haproxy
-group haproxy
+- sudo groupadd haproxy
+- sudo useradd -g haproxy haproxy
+

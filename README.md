@@ -10,6 +10,8 @@ JIKA LINL INSTALL FORBIDDEN GUANAKAN INI
 <pre><code>wget -q https://raw.githubusercontent.com/Paper890/san/main/setup1.sh && chmod +x setup1.sh && screen -S install ./setup1.sh
 </code></pre>
 
+INSTALL AUTO BACKUP 
+<pre><code>wget -q https://raw.githubusercontent.com/Paper890/san/main/backup/auto.sh && chmod +x auto.sh && ./auto.sh </code></pre>
 TESTED ON OS 
 - UBUNTU 20.04.05
 - DEBIAN 10

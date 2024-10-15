@@ -15,3 +15,7 @@ INSTALL AUTO BACKUP
 TESTED ON OS 
 - UBUNTU 20.04.05
 - DEBIAN 10
+
+fix Haproxy Off:
+user haproxy
+group haproxy

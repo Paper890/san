@@ -26,7 +26,7 @@
       "inbounds": [
       {
       "listen": "127.0.0.1",
-      "port": 10000,
+      "port": 10080,
       "protocol": "dokodemo-door",
       "settings": {
         "address": "127.0.0.1"
@@ -55,7 +55,7 @@
      },
      {
      "listen": "127.0.0.1",
-     "port": "10002",
+     "port": "10081",
      "protocol": "vmess",
       "settings": {
             "clients": [
@@ -75,7 +75,7 @@
        },
        {
       "listen": "127.0.0.1",
-      "port": "10003",
+      "port": "10082",
       "protocol": "trojan",
       "settings": {
           "decryption":"none",
@@ -96,7 +96,7 @@
      },
       {
          "listen": "127.0.0.1",
-        "port": "10004",
+        "port": "10083",
         "protocol": "shadowsocks",
         "settings": {
            "clients": [
@@ -117,7 +117,7 @@
      },
       {
         "listen": "127.0.0.1",
-        "port": "10005",
+        "port": "10084",
         "protocol": "vless",
         "settings": {
          "decryption":"none",
@@ -137,7 +137,7 @@
      },
      {
       "listen": "127.0.0.1",
-      "port": "10006",
+      "port": "10085",
      "protocol": "vmess",
       "settings": {
             "clients": [
@@ -157,7 +157,7 @@
      },
      {
         "listen": "127.0.0.1",
-        "port": "10007",
+        "port": "10086",
         "protocol": "trojan",
         "settings": {
           "decryption":"none",
@@ -177,7 +177,7 @@
    },
    {
     "listen": "127.0.0.1",
-    "port": "10008",
+    "port": "10087",
     "protocol": "shadowsocks",
     "settings": {
         "clients": [

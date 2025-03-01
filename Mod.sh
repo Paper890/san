@@ -1,9 +1,12 @@
 #!/bin/bash
 export TIME="10"
+
+#Ambil Informasi 
 IP=$(curl -sS ipv4.icanhazip.com)
 ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
 CITY=$(curl -s ipinfo.io/city )
 domain=$(cat /etc/xray/domain)
+
 clear
 echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "     Create SSH Ovpn Account      "

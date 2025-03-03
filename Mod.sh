@@ -8,9 +8,6 @@ CITY=$(curl -s ipinfo.io/city )
 domain=$(cat /etc/xray/domain)
 
 clear
-echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "     Create SSH Ovpn Account      "
-echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 read -p " Username       : " Login
 read -p " Password       : " Pass
 read -p " Expired (Days) : " masaaktif

@@ -85,38 +85,28 @@ service cron restart > /dev/null 2>&1
 
 
 clear
+DETAIL="
 ━━━━━━━━━━━━━━━━━
 Username         : ${user}
 Domain           : ${domain}          
 ━━━━━━━━━━━━━━━━━
+Uuid             : ${uuid}
 Port TLS         : 433
 Port none TLS    : 80
+Path             : /vmess
+━━━━━━━━━━━━━━━━━
+TLS Link : 
+${vmesslink1}
 
+Non TLS Link : 
+${vmesslink2}
 
-
-echo -e "
-echo -e "
-echo -e "id               : ${uuid}"
-echo -e "alterId          : 0"
-echo -e "Security         : auto"
-echo -e "Network          : ws"
-echo -e "Path             : /Multi-Path"
-echo -e "Dynamic          : https://bugmu.com/path"
-echo -e "ServiceName      : vmess-grpc"
-#echo -e "Host XrayDNS : ${NS}"
-#echo -e "Location         : $CITY"
-#echo -e "Pub Key          : ${PUB}"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Link TLS         : ${vmesslink1}"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Link none TLS    : ${vmesslink2}"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Link GRPC        : ${vmesslink3}"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Format OpenClash : https://${domain}:81/vmess-$user.txt"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Aktif Selama     : $masaaktif Hari"
-echo -e "Dibuat Pada      : $tnggl"
-echo -e "Berakhir Pada    : $expe"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━\033[0m"
-echo ""
+GRPc Link :
+${vmesslink3}
+━━━━━━━━━━━━━━━━━
+Aktif Selama     : $masaaktif Hari
+Dibuat Pada      : $tnggl
+Berakhir Pada    : $expe
+━━━━━━━━━━━━━━━━━
+"
+echo -e "$DETAIL"

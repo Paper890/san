@@ -35,30 +35,28 @@ clear
 
 
 clear
-echo -e "\033[1;93m━━━━━━━━━━━━━━━━━\033[0m"
-echo -e " CREATE VLESS ACCOUNT           "
-echo -e "\033[1;93m━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Remarks     : ${user}"
-echo -e "Domain      : ${domain}"
-#echo -e "User Quota  : ${Quota} GB"
-#echo -e "User Ip     : ${iplimit} IP"
-echo -e "port TLS    : 400-900"
-#echo -e "Port DNS    : 443"
-echo -e "Port NTLS   : 80, 8080, 8081-9999"
-echo -e "User ID     : ${uuid}"
-echo -e "Encryption  : none"
-echo -e "Path TLS    : /vless "
-echo -e "ServiceName : vless-grpc"
-echo -e "\033[1;93m━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Link TLS    : ${vlesslink1}"
-echo -e "\033[1;93m━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Link NTLS   : ${vlesslink2}"
-echo -e "\033[1;93m━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Link GRPC   : ${vlesslink3}"
-echo -e "\033[1;93m━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Format OpenClash : https://${domain}:81/vless-$user.txt"
-echo -e "\033[1;93m━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Aktif Selama     : $masaaktif Hari"
-echo -e "Dibuat Pada      : $tnggl"
-echo -e "Berakhir Pada    : $expe"
-echo -e "\033[1;93m━━━━━━━━━━━━━━━━━\033[0m"
+DETAIL="
+━━━━━━━━━━━━━━━━━
+Remarks     : ${user}
+Domain      : ${domain}
+━━━━━━━━━━━━━━━━━
+port TLS    : 443
+Port NTLS   : 80
+User ID     : ${uuid}
+Path TLS    : /vless & /vless-grpc"
+━━━━━━━━━━━━━━━━━
+Link TLS    : 
+${vlesslink1}
+
+Link NTLS   : 
+${vlesslink2}
+
+Link GRPC   : 
+${vlesslink3}
+━━━━━━━━━━━━━━━━━
+Aktif Selama     : $masaaktif Hari
+Dibuat Pada      : $tnggl
+Berakhir Pada    : $expe
+━━━━━━━━━━━━━━━━━
+"
+echo -e "${DETAIL}"

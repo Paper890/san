@@ -36,13 +36,10 @@ trojanlink1="trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&serv
 
 
 clear
-echo -e "\033[1;93m━━━━━━━━━━━━━━━━━\033[0m"
-echo -e " CREATE TROJAN ACCOUNT          "
-echo -e "\033[1;93m━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Remarks          : ${user}" 
-echo -e "Host/IP          : ${domain}"
-#echo -e "User Quota       : ${Quota} GB"
-#echo -e "User Ip           : ${iplimit} IP"
+━━━━━━━━━━━━━━━━━
+Username          : ${user}
+Host              : ${domain}
+━━━━━━━━━━━━━━━━━
 echo -e "port             : 400-900" 
 echo -e "Key              : ${uuid}" 
 echo -e "Path             : /trojan-ws" 

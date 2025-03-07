@@ -33,60 +33,7 @@ systemctl reload nginx
 service cron restart
 trojanlink="trojan://${uuid}@${domain}:443?path=%2Ftrojan-ws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
 trojanlink1="trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=${domain}#${user}"
-if [ ! -e /etc/trojan ]; then
-  mkdir -p /etc/trojan
-fi
 
-if [[ $iplimit -gt 0 ]]; then
-mkdir -p /etc/kyt/limit/trojan/ip
-echo -e "$iplimit" > /etc/kyt/limit/trojan/ip/$user
-else
-echo > /dev/null
-fi
-
-if [ -z ${Quota} ]; then
-  Quota="0"
-fi
-
-c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
-d=$((${c} * 1024 * 1024 * 1024))
-
-if [[ ${c} != "0" ]]; then
-  echo "${d}" >/etc/trojan/${user}
-fi
-DATADB=$(cat /etc/trojan/.trojan.db | grep "^###" | grep -w "${user}" | awk '{print $2}')
-if [[ "${DATADB}" != '' ]]; then
-  sed -i "/\b${user}\b/d" /etc/trojan/.trojan.db
-fi
-echo "### ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/trojan/.trojan.db
-curl -s --max-time $TIMES -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL
-clear
-cd acc
-nama_file="${user}.txt"
-
-echo -e "\033[1;93m━━━━━━━━━━━━━━━━━\033[0m" >> "$nama_file"
-echo -e " CREATE TROJAN ACCOUNT          " >> "$nama_file"
-echo -e "\033[1;93m━━━━━━━━━━━━━━━━━\033[0m" >> "$nama_file"
-echo -e "Remarks          : ${user}"  >> "$nama_file"
-echo -e "Host/IP          : ${domain}" >> "$nama_file"
-#echo -e "User Quota       : ${Quota} GB" >> "$nama_file"
-#echo -e "User Ip           : ${iplimit} IP" >> "$nama_file"
-echo -e "port             : 400-900"  >> "$nama_file"
-echo -e "Key              : ${uuid}" >> "$nama_file"
-echo -e "Path             : /trojan-ws" >> "$nama_file" 
-echo -e "ServiceName      : trojan-grpc" >> "$nama_file"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━\033[0m" >> "$nama_file"
-echo -e "Link WS          : ${trojanlink}"  >> "$nama_file"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━\033[0m"  >> "$nama_file"
-echo -e "Link GRPC        : ${trojanlink1}" >> "$nama_file"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━\033[0m" >> "$nama_file"
-echo -e "Format OpenClash : https://${domain}:81/trojan-$user.txt" >> "$nama_file"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━\033[0m" >> "$nama_file"
-echo -e "Aktif Selama     : $masaaktif Hari" >> "$nama_file"
-echo -e "Dibuat Pada      : $tnggl" >> "$nama_file"
-echo -e "Berakhir Pada    : $expe" >> "$nama_file"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━\033[0m" >> "$nama_file"
-echo "" 
 
 clear
 echo -e "\033[1;93m━━━━━━━━━━━━━━━━━\033[0m"

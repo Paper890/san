@@ -23,36 +23,33 @@ sed -i '/#trojangrpc$/a\#! '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 
 # Link Trojan Akun
-systemctl restart xray
-trojanlink1="trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=bug.com#${user}"
-trojanlink="trojan://${uuid}@bugkamu.com:443?path=%2Ftrojan-ws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
-
-
-systemctl reload xray
-systemctl reload nginx
-service cron restart
 trojanlink="trojan://${uuid}@${domain}:443?path=%2Ftrojan-ws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
 trojanlink1="trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=${domain}#${user}"
 
+systemctl restart xray
+systemctl reload xray
+systemctl reload nginx
+service cron restart
 
 clear
+DETAIL="
 ━━━━━━━━━━━━━━━━━
 Username          : ${user}
 Host              : ${domain}
 ━━━━━━━━━━━━━━━━━
-echo -e "port             : 400-900" 
-echo -e "Key              : ${uuid}" 
-echo -e "Path             : /trojan-ws" 
-echo -e "ServiceName      : trojan-grpc" 
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━\033[0m" 
-echo -e "Link WS          : ${trojanlink}" 
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━\033[0m" 
-echo -e "Link GRPC        : ${trojanlink1}" 
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━\033[0m" 
-echo -e "Format OpenClash : https://${domain}:81/trojan-$user.txt" 
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━\033[0m" 
-echo -e "Aktif Selama     : $masaaktif Hari"
-echo -e "Dibuat Pada      : $tnggl"
-echo -e "Berakhir Pada    : $expe"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━\033[0m" 
-echo "" 
+port             : 443
+Key              : ${uuid}
+Path             : /trojan-ws
+ServiceName      : trojan-grpc
+━━━━━━━━━━━━━━━━━
+Link WS          : 
+${trojanlink}
+
+Link GRPC        : 
+${trojanlink1}
+━━━━━━━━━━━━━━━━━
+Aktif Selama     : $masaaktif Hari
+Dibuat Pada      : $tnggl
+Berakhir Pada    : $expe
+"
+echo -e "$DETAIL"

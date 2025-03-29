@@ -1033,7 +1033,7 @@ clear
     base_package
     make_folder_xray
     pasang_domain
-    password_default
+    
     pasang_ssl
     install_xray
     ssh
